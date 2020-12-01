@@ -12,15 +12,26 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js" defer></script>
     <script src="app.js" defer></script>
   </head>
+
   <body>
     <header>
       <h1>Vue Events</h1>
     </header>
     <section id="events">
       <h2>Events in Action</h2>
-      <button>Add</button>
-      <button>Remove</button>
+      <button @click="add(5)">Add 5</button>
+      <button @click="subtract(5)">Subtract 5</button>
       <p>Result: {{ counter }}</p>
+      <input
+        type="text"
+        @input="nameHandler($event, 'Nebeker')"
+        @keyup.enter="enteredNameHandler"
+      />
+      <p>{{ enteredName }}</p>
+      <form @submit.prevent="submit">
+        <input type="text" />
+        <button>Send</button>
+      </form>
     </section>
   </body>
 </html>
