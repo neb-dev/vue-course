@@ -21,7 +21,8 @@
       <h2>Events in Action</h2>
       <button @click="add(5)">Add 5</button>
       <button @click="subtract(5)">Subtract 5</button>
-      <p>Result: {{ counter }}</p>
+      <p v-once>Starting Point: {{ counter }}</p>
+      <p>Ending Point: {{ counter }}</p>
       <input
         type="text"
         @input="nameHandler($event, 'Nebeker')"
