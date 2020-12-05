@@ -1,28 +1,29 @@
 const app = new Vue({
   el: '#events',
   data: {
-    counter: 0,
+    result: 5,
     name: '',
   },
   methods: {
     add(value) {
-      this.counter += value;
+      this.result += value;
     },
     subtract(value) {
-      this.counter -= value;
+      this.result -= value;
     },
-    nameHandler(event, lastName) {
+    nameHandler(event) {
       this.name = event.target.value;
-    },
-    enteredNameHandler() {
-      this.enteredName = this.name;
-    },
-    submit(event) {
-      alert('Sent!');
-      // event.preventDefault();
     },
     resetInput() {
       this.name = '';
     },
+  },
+  computed: {
+    myName() {
+      if(this.name === ''){
+        return '';
+      }
+      return this.name + ' ' + 'Nebeker';
+    }
   },
 });
