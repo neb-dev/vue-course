@@ -3,6 +3,29 @@ const app = new Vue({
   data: {
     result: 5,
     name: '',
+    lastname: '',
+    // fullname: '',
+  },
+  watch: {
+    result(val) {
+      if(val > 50) {
+        setTimeout(() => { this.result = 0; }, 1000);
+      }
+    },
+    // name(val) {
+    //   if(val === ''){
+    //     this.fullname = '';
+    //   } else {
+    //     this.fullname = val + ' ' + this.lastname;
+    //   }
+    // },
+    // lastname(val) {
+    //   if(val === ''){
+    //     this.fullname = '';
+    //   } else {
+    //     this.fullname = this.name + ' ' + val;
+    //   }
+    // },
   },
   methods: {
     add(value) {
@@ -16,14 +39,15 @@ const app = new Vue({
     },
     resetInput() {
       this.name = '';
+      this.lastname = '';
     },
   },
   computed: {
     myName() {
-      if(this.name === ''){
+      if(this.name === '' || this.lastname === ''){
         return '';
       }
-      return this.name + ' ' + 'Nebeker';
-    }
+      return this.name + ' ' + this.lastname;
+    },
   },
 });
