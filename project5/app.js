@@ -16,4 +16,15 @@ const app = new Vue({
             }
         },
     },
+    computed: {
+        boxAClasses() {
+            return { active: this.boxA };
+        },
+        boxBClasses() {
+            return { active: this.boxB };
+        },
+        boxCClasses() {
+            return { active: this.boxC };
+        },
+    },
 });
