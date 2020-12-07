@@ -21,9 +21,7 @@ const app = new Vue({
     },
     watch: {
         messageHandler(val) {
-            if(val !== 'Not there yet') {
-                setTimeout(() => {this.result = 0}, 5000);
-            }
+            setTimeout(() => { this.result = 0 }, 5000);
         }
     },
 });
