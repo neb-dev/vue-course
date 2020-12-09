@@ -21,10 +21,10 @@
       <!-- The entered class should be added to the below paragraph -->
       <input type="text" v-model="inputClass"/>
       <!-- (available classes: "user1", "user2") -->
-      <p :class="[isVisible, classSelector]">
+      <p :class="[{visible: isVisible}, {hidden: isHidden}, classSelector]">
         Style me!
       </p>
-      <button @click="">Toggle Paragraph</button>
+      <button @click="toggleVisibility">Toggle Paragraph</button>
       <!-- 2) Use the "visible" and "hidden" classes to show/ hide the above paragraph -->
       <!-- Clicking the button should toggle between the two options -->
 

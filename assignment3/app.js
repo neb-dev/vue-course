@@ -2,15 +2,13 @@ const app = new Vue({
     el: '#assignment',
     data: {
         inputClass: '',
-        isVisible: 'visible',
+        isVisible: true,
+        isHidden: false,
     },
     methods: {
         toggleVisibility() {
-            if(this.isVisible === 'visible') {
-                this.isVisible = 'hidden';
-            } else if(this.isVisible === 'hidden') {
-                this.isVisible = 'visible';
-            }
+            this.isVisible = !this.isVisible;
+            this.isHidden = !this.isHidden;
         }
     },
     computed: {
