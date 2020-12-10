@@ -4,6 +4,7 @@ const app = new Vue({
         inputClass: '',
         isVisible: true,
         isHidden: false,
+        inputColor: '',
     },
     methods: {
         toggleVisibility() {
@@ -19,5 +20,13 @@ const app = new Vue({
                 return 'user2';
             }
         },
+        colorSelector() {
+            if(this.inputColor === '') {
+                return;
+            }
+            return this.inputColor;
+
+
+        }
     },
 });
