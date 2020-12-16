@@ -22,7 +22,7 @@
       <button @click="addGoal">Add Goal</button>
       <p v-if="goals.length === 0">No goals have been added yet - please start adding some!</p>
       <ul v-else>
-        <li v-for="(goal, ind) in goals" @click="deleteGoal(ind)">{{ goal }} - {{ ind }}</li>
+        <li v-for="(goal, ind) in goals" :key="goal" @click="deleteGoal(ind)">{{ goal }} - {{ ind }}</li>
       </ul>
       <!-- <ul v-for="(obj, key) in fam">
         <li>
