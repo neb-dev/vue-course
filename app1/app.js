@@ -21,7 +21,14 @@ const game = {
       this.playerHp -= mVal;
     },
   },
-  computed: {},
+  computed: {
+    playerHpBarWidth() {
+      return {width: this.playerHp + '%'}
+    },
+    monsterHpBarWidth() {
+      return {width: this.monsterHp + '%'};
+    },
+  },
   watch: {},
 };
 const app = Vue.createApp(game);
