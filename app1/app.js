@@ -8,11 +8,19 @@ const game = {
     return {
       playerHp: 100,
       monsterHp: 100,
+      gameRound: 0,
     };
   },
   methods: {
     playerAttack() {
+      this.gameRound++;
       const pVal = attackDmg(2, 10);
+      this.monsterHp -= pVal;
+      this.monsterAttack();
+    },
+    playerSpecialAttack() {
+      this.gameRound++;
+      const pVal = attackDmg(7, 30);
       this.monsterHp -= pVal;
       this.monsterAttack();
     },
@@ -24,6 +32,9 @@ const game = {
   computed: {
     playerHpBarWidth() {
       return {width: this.playerHp + '%'}
+    },
+    getSpecial() {
+      return this.gameRound % 3 !== 0;
     },
     monsterHpBarWidth() {
       return {width: this.monsterHp + '%'};
