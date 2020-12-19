@@ -24,6 +24,16 @@ const game = {
       this.monsterHp -= pVal;
       this.monsterAttack();
     },
+    playerHeal() {
+      this.gameRound++;
+      const pVal = attackDmg(5, 15);
+      if(this.playerHp + pVal > 100) {
+        this.playerHp = 100;
+      } else {
+        this.playerHp += pVal;
+      }
+      this.monsterAttack();
+    },
     monsterAttack() {
       const mVal = attackDmg(5, 20);
       this.playerHp -= mVal;
