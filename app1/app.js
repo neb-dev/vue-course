@@ -17,6 +17,15 @@ const game = {
     };
   },
   methods: {
+    newGame() {
+      this.playerHp = 100;
+      this.monsterHp = 100;
+      this.victory = null;
+      this.gameRound = 0;
+    },
+    surrender() {
+      this.victory = 'monster';
+    },
     playerAttack() {
       this.gameRound++;
       const pVal = attackDmg(2, 10);

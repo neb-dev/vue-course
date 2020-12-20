@@ -33,12 +33,13 @@
         <h3 v-if="victory === 'player'">You won!</h3>
         <h3 v-else-if="victory === 'monster'">Game Over...</h3>
         <h3 v-else>Draw</h3>
+        <button @click="newGame">Start New Game</button>
       </section>
-      <section id="controls">
+      <section id="controls" v-else>
         <button @click="playerAttack">ATTACK</button>
         <button :disabled="getSpecial" @click="playerSpecialAttack">SPECIAL ATTACK</button>
         <button @click="playerHeal">HEAL</button>
-        <button>SURRENDER</button>
+        <button @click="surrender">SURRENDER</button>
       </section>
       <section id="log" class="container">
         <h2>Battle Log</h2>
