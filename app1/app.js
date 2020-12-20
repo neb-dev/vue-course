@@ -3,12 +3,17 @@ function attackDmg(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
+function isGameOver() {
+
+}
+
 const game = {
   data() {
     return {
       playerHp: 100,
       monsterHp: 100,
       gameRound: 0,
+      victory: null,
     };
   },
   methods: {
@@ -26,8 +31,8 @@ const game = {
     },
     playerHeal() {
       this.gameRound++;
-      const pVal = attackDmg(5, 15);
-      if(this.playerHp + pVal > 100) {
+      const pVal = attackDmg(10, 35);
+      if (this.playerHp + pVal > 100) {
         this.playerHp = 100;
       } else {
         this.playerHp += pVal;
@@ -41,16 +46,41 @@ const game = {
   },
   computed: {
     playerHpBarWidth() {
-      return {width: this.playerHp + '%'}
+      if(this.playerHp < 0) {
+        return { width: '0%' };
+      }
+      return { width: this.playerHp + '%' };
     },
     getSpecial() {
       return this.gameRound % 3 !== 0;
     },
     monsterHpBarWidth() {
-      return {width: this.monsterHp + '%'};
+      if(this.monsterHp < 0) {
+        return { width: '0%' };
+      }
+      return { width: this.monsterHp + '%' };
     },
   },
-  watch: {},
+  watch: {
+    playerHp(val) {
+      if(val <= 0 && this.monsterHp <= 0) {
+        // draw
+        this.victory = 'draw';
+      } else if(val <= 0) {
+        // monster wins
+        this.victory = 'monster';
+      }
+    },
+    monsterHp(val) {
+      if(val <= 0 && this.playerHp <= 0) {
+        // draw
+        this.victory = 'draw';
+      } else if(val <= 0) {
+        // player wins
+        this.victory = 'player';
+      }
+    }
+  },
 };
 const app = Vue.createApp(game);
 app.mount('#game');
