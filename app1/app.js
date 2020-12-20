@@ -3,10 +3,6 @@ function attackDmg(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function isGameOver() {
-
-}
-
 const game = {
   data() {
     return {
@@ -55,7 +51,7 @@ const game = {
   },
   computed: {
     playerHpBarWidth() {
-      if(this.playerHp < 0) {
+      if (this.playerHp < 0) {
         return { width: '0%' };
       }
       return { width: this.playerHp + '%' };
@@ -64,7 +60,7 @@ const game = {
       return this.gameRound % 3 !== 0;
     },
     monsterHpBarWidth() {
-      if(this.monsterHp < 0) {
+      if (this.monsterHp < 0) {
         return { width: '0%' };
       }
       return { width: this.monsterHp + '%' };
@@ -72,23 +68,23 @@ const game = {
   },
   watch: {
     playerHp(val) {
-      if(val <= 0 && this.monsterHp <= 0) {
+      if (val <= 0 && this.monsterHp <= 0) {
         // draw
         this.victory = 'draw';
-      } else if(val <= 0) {
+      } else if (val <= 0) {
         // monster wins
         this.victory = 'monster';
       }
     },
     monsterHp(val) {
-      if(val <= 0 && this.playerHp <= 0) {
+      if (val <= 0 && this.playerHp <= 0) {
         // draw
         this.victory = 'draw';
-      } else if(val <= 0) {
+      } else if (val <= 0) {
         // player wins
         this.victory = 'player';
       }
-    }
+    },
   },
 };
 const app = Vue.createApp(game);

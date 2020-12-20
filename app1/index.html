@@ -37,7 +37,9 @@
       </section>
       <section id="controls" v-else>
         <button @click="playerAttack">ATTACK</button>
-        <button :disabled="getSpecial" @click="playerSpecialAttack">SPECIAL ATTACK</button>
+        <button :disabled="getSpecial" @click="playerSpecialAttack">
+          SPECIAL ATTACK
+        </button>
         <button @click="playerHeal">HEAL</button>
         <button @click="surrender">SURRENDER</button>
       </section>
