@@ -47,7 +47,15 @@
         <h2>Battle Log</h2>
         <ul>
           <li v-for="log in logData">
-            {{ log.player }} - {{ log.action }} - {{ log.value }}
+            <span :class="{'log--player': log.player === 'player', 'log--monster': log.player === 'monster'}">
+              {{ log.player === 'player' ? 'Player' :  'Monster' }}
+            </span>
+            <span v-if="log.action === 'heal'" > 
+               heals for <span class="log--heal">{{ log.value }}</span>
+            </span>
+            <span v-else>
+               attacks for <span class="log--damage">{{ log.value }}</span>
+            </span>
           </li>
         </ul>
       </section>
