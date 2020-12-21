@@ -10,9 +10,17 @@ const game = {
       monsterHp: 100,
       gameRound: 0,
       victory: null,
+      logData: [],
     };
   },
   methods: {
+    combatLog(p, a, v) {
+      this.logData.unshift({
+        player: p,
+        action: a,
+        value: v,
+      });
+    },
     newGame() {
       this.playerHp = 100;
       this.monsterHp = 100;
@@ -26,12 +34,14 @@ const game = {
       this.gameRound++;
       const pVal = attackDmg(2, 10);
       this.monsterHp -= pVal;
+      this.combatLog('player', 'attack', pVal);
       this.monsterAttack();
     },
     playerSpecialAttack() {
       this.gameRound++;
       const pVal = attackDmg(7, 30);
       this.monsterHp -= pVal;
+      this.combatLog('player', 'special', pVal);
       this.monsterAttack();
     },
     playerHeal() {
@@ -42,11 +52,13 @@ const game = {
       } else {
         this.playerHp += pVal;
       }
+      this.combatLog('player', 'heal', pVal);
       this.monsterAttack();
     },
     monsterAttack() {
       const mVal = attackDmg(5, 20);
       this.playerHp -= mVal;
+      this.combatLog('monster', 'attack', mVal);
     },
   },
   computed: {
