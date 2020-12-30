@@ -32,3 +32,20 @@ const app2 = Vue.createApp({
 });
 
 app2.mount('#app2');
+
+/*
+VUE LIFECYCLE
+1. createApp
+2. beforeCreate
+3. created      *compile template*
+4. beforeMount  *compile template*
+5. mounted      *mounted vue instance*
+
+Data Changed
+6. beforeUpdate
+7. updated
+
+Instance Unmounted
+8. beforeUnmount
+9. unmounted
+*/
