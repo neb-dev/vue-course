@@ -1,11 +1,10 @@
 <template>
-<section>
-<h2>Friends List</h2>
-<ul>
-    <li></li>
-</ul>
-</section>
-
+  <section>
+    <h2>Friends List</h2>
+    <ul>
+      <li></li>
+    </ul>
+  </section>
 </template>
 
 <script>
