@@ -11,15 +11,18 @@
 
 <script>
 export default {
+  props: {
+    friend: Object
+  },
   data() {
     return {
       isVis: false,
-      friend: {
-        id: 'josh',
-        name: 'Joshua Lastname',
-        phone: '1231234456',
-        email: 'josh@email.com',
-      },
+      // friend: {
+      //   id: 'josh',
+      //   name: 'Joshua Lastname',
+      //   phone: '1231234456',
+      //   email: 'josh@email.com',
+      // },
     };
   },
   methods: {

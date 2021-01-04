@@ -2,7 +2,9 @@
   <section>
     <header><h1>Friends List</h1></header>
     <ul>
-      <friend />
+      <li v-for="(f, i) in friends" :key="i">
+        <friend :friend="friends[i]" />
+      </li>
     </ul>
   </section>
 </template>
@@ -14,15 +16,27 @@ export default {
       friends: [
         {
           id: 'jessica',
-          name: 'Jessica Lastname',
+          name: 'Jessica',
           phone: '1231234456',
           email: 'jess@email.com',
         },
         {
           id: 'josh',
-          name: 'Joshua Lastname',
+          name: 'Joshua',
           phone: '1231234456',
           email: 'josh@email.com',
+        },
+        {
+          id: 'bailey',
+          name: 'Bailey',
+          phone: '1231234456',
+          email: 'bailey@email.com',
+        },
+        {
+          id: 'kent',
+          name: 'Kent',
+          phone: '1231234456',
+          email: 'kent@email.com',
         },
       ],
     };
