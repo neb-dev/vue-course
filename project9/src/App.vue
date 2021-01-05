@@ -3,7 +3,7 @@
     <header><h1>Friends List</h1></header>
     <ul>
       <li v-for="(f, i) in friends" :key="i">
-        <friend :friend="friends[i]" />
+        <friend :friend="friends[i]" selected="isSelected"/>
       </li>
     </ul>
   </section>
@@ -13,6 +13,7 @@
 export default {
   data() {
     return {
+      isSelected: 0,
       friends: [
         {
           id: 'jessica',
