@@ -13,13 +13,23 @@
 <script>
 export default {
   props: {
-    friend: Object,
-    selected: Number,
+    friend: {
+      type: Object,
+      required: true,
+    },
+    selected: {
+      type: Number,
+      required: false,
+      default: 0, // value can be a function
+      validator: function(value) {
+        return value === '1' || value === '0';
+      },
+    },
   },
   data() {
     return {
       isVis: false,
-      isSelected: this.selected, // set prop value to component data variable 
+      isSelected: this.selected, // set prop value to component data variable
     };
   },
   methods: {
@@ -27,12 +37,12 @@ export default {
       this.isVis = !this.isVis;
     },
     setSelected() {
-      if(this.isSelected === 1) {
+      if (this.isSelected === 1) {
         this.isSelected = 0;
       } else {
         this.isSelected = 1;
-      }      
-    }
+      }
+    },
   },
 };
 </script>
