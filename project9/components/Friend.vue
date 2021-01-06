@@ -1,6 +1,6 @@
 <template>
   <li>
-    <h2>{{ friend.name }} {{ isSelected === 1 ? 'Selected' : '' }}</h2>
+    <h2>{{ friend.name }} {{ isSelected ? 'Selected' : '' }}</h2>
     <button @click="setSelected">Select</button>
     <button @click="toggleVis">{{ isVis ? 'Hide' : 'Show' }} Details</button>
   </li>
@@ -18,12 +18,12 @@ export default {
       required: true,
     },
     selected: {
-      type: Number,
+      type: Boolean, // can be constructor function like Date()
       required: false,
-      default: 0, // value can be a function
-      validator: function(value) {
-        return value === '1' || value === '0';
-      },
+      default: false, // value can be a function
+      // validator: function(value) {
+      //   return value === '1' || value === '0';
+      // },
     },
   },
   data() {
@@ -37,11 +37,7 @@ export default {
       this.isVis = !this.isVis;
     },
     setSelected() {
-      if (this.isSelected === 1) {
-        this.isSelected = 0;
-      } else {
-        this.isSelected = 1;
-      }
+      this.isSelected = !this.isSelected;
     },
   },
 };

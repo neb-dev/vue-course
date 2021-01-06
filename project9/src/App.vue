@@ -2,9 +2,10 @@
   <section>
     <header><h1>Friends List</h1></header>
     <ul>
-      <li v-for="(f, i) in friends" :key="i">
-        <friend :friend="friends[i]" selected="isSelected"/>
-      </li>
+      
+        <!-- friend must use v-bind to pass non-string values -->
+        <friend v-for="(f, i) in friends" :key="i" :friend="friends[i]" :selected="isSelected"/>
+      
     </ul>
   </section>
 </template>
@@ -13,7 +14,7 @@
 export default {
   data() {
     return {
-      isSelected: 0,
+      isSelected: false,
       friends: [
         {
           id: 'jessica',
@@ -32,12 +33,6 @@ export default {
           name: 'Bailey',
           phone: '1231234456',
           email: 'bailey@email.com',
-        },
-        {
-          id: 'kent',
-          name: 'Kent',
-          phone: '1231234456',
-          email: 'kent@email.com',
         },
       ],
     };
