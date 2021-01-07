@@ -1,6 +1,6 @@
 <template>
   <li>
-    <h2>{{ friend.name }} {{ isSelected ? 'Selected' : '' }}</h2>
+    <h2>{{ friend.name }} {{ friend.isSelected ? 'Selected' : '' }}</h2>
     <button @click="setSelected">Select</button>
     <button @click="toggleVis">{{ isVis ? 'Hide' : 'Show' }} Details</button>
   </li>
@@ -29,7 +29,7 @@ export default {
   data() {
     return {
       isVis: false,
-      isSelected: this.selected, // set prop value to component data variable
+      // isSelected: this.selected, // sets prop value to component data variable
     };
   },
   methods: {
@@ -37,7 +37,7 @@ export default {
       this.isVis = !this.isVis;
     },
     setSelected() {
-      this.isSelected = !this.isSelected;
+      this.$emit('selected', this.friend.id);
     },
   },
 };
