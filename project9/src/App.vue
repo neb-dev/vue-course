@@ -10,6 +10,7 @@
         :friend="friends[i]"
         :selected="f.isSelected"
         @selected="getSelected"
+        @remove-friend="removeFriend"
       />
     </ul>
   </section>
@@ -58,6 +59,9 @@ export default {
         isSelected: false,
       };
       this.friends.push(friend);
+    },
+    removeFriend(id) {
+      this.friends = this.friends.filter(friend => friend.id !== id);
     },
   },
 };

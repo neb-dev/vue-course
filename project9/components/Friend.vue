@@ -3,6 +3,7 @@
     <h2>{{ friend.name }} {{ friend.isSelected ? 'Selected' : '' }}</h2>
     <button @click="setSelected">Select</button>
     <button @click="toggleVis">{{ isVis ? 'Hide' : 'Show' }} Details</button>
+    <button @click="$emit('remove-friend', friend.id)">Remove Friend</button>
   </li>
   <ul v-if="isVis">
     <li><strong>Phone:</strong>{{ friend.phone }}</li>
@@ -35,6 +36,13 @@ export default {
         return true;
       } else {
         console.log('Missing friend ID');
+        return false;
+      }
+    },
+    'remove-friend': function(id) {
+      if(id) {
+        return true;
+      } else {
         return false;
       }
     },
