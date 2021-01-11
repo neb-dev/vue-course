@@ -12,6 +12,7 @@
 
 <script>
 export default {
+  // props can also be an array of prop strings
   props: {
     friend: {
       type: Object,
@@ -24,6 +25,18 @@ export default {
       // validator: function(value) {
       //   return value === '1' || value === '0';
       // },
+    },
+  },
+  // emits can also be an array of event strings
+  emits: {
+    'selected': function(id) {
+      if(id) {
+        console.log('Friend ID: ' + id);
+        return true;
+      } else {
+        console.log('Missing friend ID');
+        return false;
+      }
     },
   },
   data() {
