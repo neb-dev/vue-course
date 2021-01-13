@@ -13,7 +13,7 @@
 
 <script>
 export default {
-  props: ['topics'],
+  inject: ['topics'], // topics can be passed down to child component
   emits: ['select-topic']
 };
 </script>
