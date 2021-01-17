@@ -11,7 +11,18 @@
 </template>
 
 <script>
+import TheHeader from './components/TheHeader.vue';
+import BadgeList from './components/BadgeList.vue';
+import UserInfo from './components/UserInfo.vue';
+
 export default {
+  components: {
+    'the-header': TheHeader,
+    'badge-list': BadgeList,
+    'user-info': UserInfo,
+    // can still be accessed using <the-header></the-header> or <TheHeader /> but not <the-header />
+    // TheHeader: TheHeader
+  },
   data() {
     return {
       activeUser: {
