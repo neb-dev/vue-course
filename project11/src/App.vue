@@ -33,12 +33,14 @@ import ManageGoals from './components/ManageGoals.vue';
 
 export default {
   components: {
-    'the-header': TheHeader,
-    'badge-list': BadgeList,
-    'user-info': UserInfo,
-    CourseGoals,
     // can still be accessed using <the-header></the-header> or <TheHeader /> but not <the-header />
     // TheHeader: TheHeader
+    'the-header': TheHeader,
+    // 'badge-list': BadgeList,
+    // 'user-info': UserInfo,
+    // CourseGoals,
+    'active-goals': ActiveGoals,
+    'manage-goals': ManageGoals,
   },
   data() {
     return {
