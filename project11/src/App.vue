@@ -1,27 +1,35 @@
 <template>
   <div>
     <the-header></the-header>
-    <badge-list></badge-list>
+    <button @click="setComponent('active-goals')">Active Goals</button>
+    <button @click="setComponent('manage-goals')">Manage Goals</button>
+    
+    <component :is="component"></component>
+
+    <!-- <badge-list></badge-list>
     <user-info
       :full-name="activeUser.name"
       :info-text="activeUser.description"
       :role="activeUser.role"
-    ></user-info>
+    ></user-info> -->
+
     <!-- to cut the template tag out you can add #default="slotProps" to course-goals tag but only when the content belongs to a single (default) slot -->
-    <course-goals>
+    <!-- <course-goals>
       <template #default="slotProps">
         <h2>{{ slotProps.goalData }}</h2>
         <p>{{ slotProps['extraData'] }}</p>
       </template>
-    </course-goals>
+    </course-goals> -->
   </div>
 </template>
 
 <script>
 import TheHeader from './components/TheHeader.vue';
-import BadgeList from './components/BadgeList.vue';
-import UserInfo from './components/UserInfo.vue';
-import CourseGoals from './components/CourseGoals.vue';
+import ActiveGoals from './components/ActiveGoals.vue';
+import ManageGoals from './components/ManageGoals.vue';
+// import BadgeList from './components/BadgeList.vue';
+// import UserInfo from './components/UserInfo.vue';
+// import CourseGoals from './components/CourseGoals.vue';
 
 export default {
   components: {
@@ -39,8 +47,14 @@ export default {
         description: 'Site owner and admin',
         role: 'admin',
       },
+      component: '',
     };
   },
+  methods: {
+    setComponent(cmp) {
+      this.component = cmp;
+    },
+  }
 };
 </script>
 
