@@ -3,8 +3,10 @@
     <the-header></the-header>
     <button @click="setComponent('active-goals')">Active Goals</button>
     <button @click="setComponent('manage-goals')">Manage Goals</button>
-    
-    <component :is="component"></component>
+
+    <keep-alive>
+      <component :is="component"></component>
+    </keep-alive>
 
     <!-- <badge-list></badge-list>
     <user-info
@@ -24,7 +26,7 @@
 </template>
 
 <script>
-import TheHeader from './components/TheHeader.vue';
+import TheHeader from './components/layout/TheHeader.vue';
 import ActiveGoals from './components/ActiveGoals.vue';
 import ManageGoals from './components/ManageGoals.vue';
 // import BadgeList from './components/BadgeList.vue';
@@ -56,7 +58,7 @@ export default {
     setComponent(cmp) {
       this.component = cmp;
     },
-  }
+  },
 };
 </script>
 
