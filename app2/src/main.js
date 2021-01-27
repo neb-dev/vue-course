@@ -1,3 +1,5 @@
 import { createApp } from 'vue';
 
-createApp({}).mount('#app');
+import App from '../src/App.vue';
+
+createApp(App).mount('#app');
