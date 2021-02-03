@@ -1,14 +1,12 @@
 <template>
   <the-header title="RememberMe"></the-header>
-  <stored-resources :resources="storedResources"></stored-resources>
 </template>
 
 <script>
 import TheHeader from '../components/layouts/TheHeader.vue';
-import StoredResources from '../components/learning-resources/StoredResources.vue';
+
 export default {
   components: {
-    'stored-resources': StoredResources,
     'the-header': TheHeader,
   },
   data() {
