@@ -1,17 +1,17 @@
 <template>
     <base-card>
-        <form>
+        <form @submit.prevent="submitData">
             <div class="form-control">
             <label for="title">Title</label>
-            <input id="title" name="title" type="text">
+            <input id="title" name="title" type="text" ref="titleInput">
             </div>
             <div class="form-control">
             <label for="description">Description</label>
-            <textarea name="description" id="description" rows="3"></textarea>
+            <textarea name="description" id="description" rows="3" ref="descInput"></textarea>
             </div>
             <div class="form-control">
             <label for="link">Link</label>
-            <input id="link" name="link" type="url">
+            <input id="link" name="link" type="url" ref="linkInput">
             </div>
             <div>
                 <!-- type attribute is applied to root html button element -->
@@ -20,6 +20,26 @@
         </form>
     </base-card>
 </template>
+
+<script>
+export default {
+  inject: ['addResource'],
+  data() {
+    return {
+
+    };
+  },
+  methods: {
+    submitData() {
+      const enteredTitle = this.$ref.titleInput.value;
+      const enteredDesc = this.$ref.descInput.value;
+      const enteredLink = this.$ref.linkInput.value;
+
+      this.addResouce(enteredTitle, enteredDesc, enteredLink);
+      }
+  }
+}
+</script>
 
 <style scoped>
 label {
