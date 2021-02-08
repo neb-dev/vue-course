@@ -9,8 +9,8 @@ import TheResources from '../components/learning-resources/TheResources.vue';
 export default {
   components: {
     'the-header': TheHeader,
-    'the-resources': TheResources,
-  },
+    'the-resources': TheResources
+  }
 };
 </script>
 

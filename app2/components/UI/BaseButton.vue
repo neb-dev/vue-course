@@ -1,22 +1,23 @@
 <template>
-    <button :class="mode"> <!-- :type="type" -->
-        <slot></slot>
-    </button>
+  <button :class="mode">
+    <!-- :type="type" -->
+    <slot></slot>
+  </button>
 </template>
 
 <script>
 export default {
-    props: {
-        // type: {
-        //     type: String,
-        //     required: true,
-        // },
-        mode: {
-            type: String,
-            required: true,
-        },
+  props: {
+    // type: {
+    //     type: String,
+    //     required: true,
+    // },
+    mode: {
+      type: String,
+      required: true
     }
-}
+  }
+};
 </script>
 
 <style scoped>
