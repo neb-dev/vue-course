@@ -3,7 +3,9 @@
     <base-card>
       <h2>Submitted Experiences</h2>
       <div>
-        <base-button>Load Submitted Experiences</base-button>
+        <base-button @click="loadExperiences"
+          >Load Submitted Experiences</base-button
+        >
       </div>
       <ul>
         <survey-result
@@ -21,10 +23,28 @@
 import SurveyResult from './SurveyResult.vue';
 
 export default {
-  props: ['results'],
   components: {
-    SurveyResult,
+    SurveyResult
   },
+  data() {
+    return {
+      results: []
+    };
+  },
+  methods: {
+    loadExperiences() {
+      fetch('https://project13-de53d-default-rtdb.firebaseio.com/surveys.json')
+      .then(res => res.json())
+      .then(data => {
+        const results = [];
+        for (const id in data) {
+          results.push({id: id, name: data[id].name, rating: data[id].rating})
+          // results.push(data[id]);
+        }
+        this.results = results;
+      });
+    }
+  }
 };
 </script>
 
