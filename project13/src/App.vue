@@ -1,11 +1,15 @@
 <template>
-   <learning-survey></learning-survey> <!-- @survey-submit="storeSurvey" -->
-  <user-experiences></user-experiences> <!-- :results="savedSurveyResults" -->
+  <div>
+    <learning-survey></learning-survey>
+    <!-- @survey-submit="storeSurvey" -->
+    <user-experiences></user-experiences>
+    <!-- :results="savedSurveyResults" -->
+  </div>
 </template>
 
 <script>
-import LearningSurvey from './components/survey/LearningSurvey.vue';
-import UserExperiences from './components/survey/UserExperiences.vue';
+import LearningSurvey from "./components/survey/LearningSurvey.vue";
+import UserExperiences from "./components/survey/UserExperiences.vue";
 
 export default {
   components: {
