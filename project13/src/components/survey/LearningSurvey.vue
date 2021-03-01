@@ -41,6 +41,7 @@
         <p v-if="invalidInput">
           One or more input fields are invalid. Please check your provided data.
         </p>
+        <p v-if="error">{{ error }}</p>
         <div>
           <base-button>Submit</base-button>
         </div>
@@ -55,7 +56,8 @@ export default {
     return {
       enteredName: '',
       chosenRating: null,
-      invalidInput: false
+      invalidInput: false,
+      erroe: null
     };
   },
   // emits: ['survey-submit'],
@@ -65,7 +67,9 @@ export default {
         this.invalidInput = true;
         return;
       }
+
       this.invalidInput = false;
+      this.error = null;
 
       fetch(
         'https://project13-de53d-default-rtdb.firebaseio.com/surveys.json',
@@ -79,7 +83,18 @@ export default {
             rating: this.chosenRating
           })
         }
-      );
+      )
+      .then(res => {
+        if(res.ok) {
+          // ...
+        } else {
+          throw new Error('Could not save data...');
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        this.error = error.message;
+      });
 
       // this.$emit('survey-submit', {
       //   userName: this.enteredName,
